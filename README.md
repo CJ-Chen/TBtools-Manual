@@ -25,7 +25,7 @@ If user want to run TBtools in GUI mode with useful debug information, just type
 **List of Tools under GUI Mode**
 
 * Sequence Toolkits
-  + Amazing Fasta **Extractor**
+  + Amazing Fasta **Extractor**    
         Transformat Fasta file, make a Fasta-Index and extract Fasta Record in a **very** quick way. 
   + Fasta **Stater**
         Stat a Fasta file, which can generate a summary information (record counts, total Len, N50, GC contents ...) of all Fasta record and a file contain sequence features (simplified ID, length, GC content ...) of each fasta record.
