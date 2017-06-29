@@ -58,7 +58,56 @@ Thus, Tills now(2017/06/29), TBtools *as less* contains functions as bellowed:
         Use a sequnce to **FISH** ovelapping reads and assemble into a *long* sequence. This function might be useful to conduction Genome-walking on Re-sequencing data or 5'RACE or 3'RACE on RNAsequencing data *in silco*.
 
 * GO and KEGG
-
+  + **GO** Annotation
+        Conduct a gene-ontology annotation. This function is only a ID-mapping tools, which map the input GI,Accession Number of NCBI,Uniprot or Tremble to GO ID.
+  + **GO** Enrichment
+        Conduct gene-ontology term enrichment analysis basing on hypergeometrix distribution.
+  + **GO** Level Counter
+        Count gene number at specific GO level, output a statistics table and an optional graph.
+  + **GO** Level Compare
+        Compare two GO annotation result on specific GO level and output a graph. This function *do not* work well now. Will fix it.
+  + **GO** Term Parser
+        Parse GO annotation, from which user can know every gene2GO and GO2gene mapping information.
+  + Prepare **GO** Annotation for BiNGO in cytoscape
+        Transformat *many* gene-ontology annotation into a formated file for BiNGO.
+  + **KEGG** Enrichment Analysis
+        Conduct KEGG pathway analysis basing on hypergeometrix distribution.
+  + **KEGG** Pathwat Map Drawer
+        Hightlight genes on KEGG pathway map.
+* Other
+  + **C**o**l**o**r** **P**i**c**k**e**r
+        Pick color code freely and save color code graph as needed.
+  + **Table** ID Manipulator
+        Extract, Filter or Rank table *Row*
+  + **Table** Column Manipulator
+        Rank or keep only *Column* selected... Extract or Filter funstion **WILL BE ADDED**.
+  + **Big Text** Viewer
+        Take a glance of text file with very **Big Size** in a **very quick** way.
+  + **Big Table** Viewer
+        Take a glance of table file with very **Big Size** in a **very quick** way.
+  + **Text Block** Extractor
+        Extract Text Block with specific ID list and record seperate string. This function was developed for extracting synteny block.
+  + **Expression** Shower
+        Visulize expression trend of one gene or several gene.
+  + **Expression** Calculator
+        Calculate expression value (**RPKM** or **TPM** value) according gene.counts and gene.len
+  + **Wonderful Venn** (Up to Six Sets)
+        Conduct Venn analysis in an interative way.
+  + **Map** Genes On Genome From Sequence Files
+        Conduct Blast to get the positon region of input gene on genome and then output a graph
+  + **Map** Genes On Genome From Position Info File
+        Draw a gene on genome file basing on input gene and genome info.
+  + **Dual Synteny Plot** from MCScanX output
+        Visulize result from MCScanX in a interactive way.
+  + **Domain/Motif** Pattern Drawers
+        Visulzie result from MEME suite, NCBI Batch-CD search, pfam-search or GFF/GTF.
+* About
+  + About TBtools
+        Show some information about TBtools.
+  + Debug Dialog
+        Show Debug dialog, which could be used for bugs tracking.
+  + Resize JVM Memory
+        Some functions need high memory. So, this function could be used to get a new TBtools Windows wich higher memory. It may be failed under some environment.
 
 
 ### Usage:how to use TBtools?
@@ -68,10 +117,10 @@ Thus, Tills now(2017/06/29), TBtools *as less* contains functions as bellowed:
 ### Bugs:where to report the bugs and help developing TBtools?
 
 ### To Updates:
--[ ] Fasta Extractor
--[ ] Fasta Subseq
--[ ] Fasta Split
+-[] Fasta Extractor
+-[] Fasta Subseq
+-[] Fasta Split
 
 ### To DO:
--[ ] Seven set and Eight set Venn
+-[] Seven set and Eight set Venn
 
