@@ -6,10 +6,24 @@ TBtools, short for **"Tools for Biologist"**, is a Toolset and also a project.
 From the very beginning, I just want to develop a Toolset, which can be useful for my self in Command LIne mode, and for my colleage in Graphics User Interface mode.  
 However, some friends saw this work and said TBtools would also be useful to them. So, I post it on web. And consequently, more and more friends send me feature calls and more and more functions were added into TBtools.   
 Thus, Tills now(2017/06/29), TBtools *as less* contains functions as bellowed:
-##### Under CLI Mode:
+##### In CLI Mode:
+
+To run TBtools in CLI mode,
+* if the running environment has *no* graphics device, like under terminal to server, just type `java -jar TBtools_vX.XX.jar`, and then all available tools will be shown. Copy the command for specific tools and use it.
+* if the running environment has graphics device, like under windows, mac or X-windows, just type `java -jar TBtools_vX.XX.jar anyString`... If no string after, then TBtools will try to run in GUI mode and in many cases, a TBtools main windows will shown.
+
+**List of Tools under CLI Mode**
+will add in the furture...
 
 
-##### Under GUI Mode:
+##### In GUI Mode:
+To runu TBtools in GUI mode,
+If the .jar file has been linked to java, then just **Double-click the .jar file**. the TBtools main window will show up.   
+If user install TBtools from .exe file **under windows**, just run TBtools like many other software.    
+If user want to run TBtools in GUI mode with useful debug information, just type `java -jar TBtools_vX.XX.jar debug`.
+
+**List of Tools under GUI Mode**
+
 * Sequence Toolkits
   + Amazing Fasta **Extractor**
         Transformat Fasta file, make a Fasta-Index and extract Fasta Record in a **very** quick way. 
@@ -22,11 +36,11 @@ Thus, Tills now(2017/06/29), TBtools *as less* contains functions as bellowed:
   + Fasta **Merge and Split**
         Merge several fasta file into one fasta file Or Split one fasta file into several fasta files.
   + Sequence **Manipulator**
-  	Tranformat, Reverse, Complement of sequence
+        Tranformat, Reverse, Complement of sequence
   + NCBI **Seq Downloader**
         Batch download Sequnces from NCBI according to GI or Accession Number list.
   + Get Completes **ORF**(Open Reading Frame)
-  	Predict complete ORF from input sequence. At present, this function only detect **complete ORF** and only the classic codon usage table. That is, a **complete ORF** here only refer to sequence region starts from *ATG* and ends with *TGA*,*TAA* and *TAG*.
+        Predict complete ORF from input sequence. At present, this function only detect **complete ORF** and only the classic codon usage table. That is, a **complete ORF** here only refer to sequence region starts from *ATG* and ends with *TGA*,*TAA* and *TAG*.
   + Check **Primers**(Simple PCR)
         Directly check the primers sequence location to simply stat the specifity of input primer in the specific sequnce database, such as the transcriptome of one species.
   + GFF/GTF Sequence Extractor
@@ -112,6 +126,9 @@ Thus, Tills now(2017/06/29), TBtools *as less* contains functions as bellowed:
 
 ### Usage:how to use TBtools?
     A very very long way to go...
+
+
+
 ### FAQs:why TBtools fails?
     1. Sequence extraction failed.
        Most of the time, if TBtools fail to extract sequences from fasta file, the reason should the *Input ID List* is not match in the *Subject Fasta File*. Test it.
@@ -124,10 +141,10 @@ Thus, Tills now(2017/06/29), TBtools *as less* contains functions as bellowed:
 - Through QQ chatting group: TBools使用交流群(553679029)
     ...
 ### To Updates:
-- [] Fasta Extractor
-- [] Fasta Subseq
-- [] Fasta Split
+- [ ] Fasta Extractor
+- [ ] Fasta Subseq
+- [ ] Fasta Split
 
 ### To DO:
-- [] Seven set and Eight set Venn
+- [ ] Seven set and Eight set Venn
 
