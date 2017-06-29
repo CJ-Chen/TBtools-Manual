@@ -111,16 +111,23 @@ Thus, Tills now(2017/06/29), TBtools *as less* contains functions as bellowed:
 
 
 ### Usage:how to use TBtools?
-
+    A very very long way to go...
 ### FAQs:why TBtools fails?
-
+    1. Sequence extraction failed.
+       Most of the time, if TBtools fail to extract sequences from fasta file, the reason should the *Input ID List* is not match in the *Subject Fasta File*. Test it.
+    2. Blast-related Functions failed.
+       Thest function has been test for a many many times by many many friends, they should have been statble and robust for quite a long time. If TBtools faided in these function, please check whether the *blast* could be normally run in Command line environment.
+    ...
 ### Bugs:where to report the bugs and help developing TBtools?
-
+    There are many ways to *report bugs* and send *feature calls* for TBtools:
+- Send Me an email: ccj0410@gmail.com
+- Through QQ chatting group: TBools使用交流群(553679029)
+    ...
 ### To Updates:
--[] Fasta Extractor
--[] Fasta Subseq
--[] Fasta Split
+- [] Fasta Extractor
+- [] Fasta Subseq
+- [] Fasta Split
 
 ### To DO:
--[] Seven set and Eight set Venn
+- [] Seven set and Eight set Venn
 
