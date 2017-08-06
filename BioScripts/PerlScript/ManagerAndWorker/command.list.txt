@@ -1,0 +1,6 @@
+echo 1
+echo 123
+ohc
+perl -le 'print "inPerl..."'
+print aba
+echo aaa
