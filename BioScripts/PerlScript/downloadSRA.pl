@@ -32,7 +32,7 @@ for ($retstart = 0; $retstart < $count; $retstart += $retmax) {
 	$efetch_url .= "&query_key=$key&retstart=$retstart";
 	$efetch_url .= "&retmax=$retmax&rettype=xml&retmode=full";
 	$efetch_out = get($efetch_url);
-	open(OUT, ">sra.".$timeStamp.".".$retstart."xml") || die "Can't open file!\n";
+	open(OUT, ">sra.".$timeStamp.".".$retstart.".xml") || die "Can't open file!\n";
 	binmode OUT,":utf8";
 	print OUT "$efetch_out";
 	close OUT;
