@@ -30,7 +30,7 @@ counts<-counts[,-1]
 
 head(counts)
 
-keep <- rowSums(cpm(counts)>1) >= 2
+keep <- rowSums(cpm(counts)>1) >= 1
 counts <- counts[keep,]+1
 # conds <- c("Control","Case1","Case2")
 conds<-colnames(counts)
