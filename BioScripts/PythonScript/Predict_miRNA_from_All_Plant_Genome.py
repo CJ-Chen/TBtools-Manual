@@ -79,6 +79,9 @@ shellscript=open("tmp.sh","w")
 shellscript.write(commands)
 shellscript.close()
 
+subprocess.call("sh tmp.sh",shell=True)
+
+
     
     
     

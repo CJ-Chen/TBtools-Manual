@@ -1,0 +1,40 @@
+# 陈哲数据绘图
+setwd("C:\\Users\\CJ\\Desktop\\其他人的项目\\陈哲\\海南12个荔枝样品有参考基因组结题报告\\3.基因功能注释\\NR注释与物种分布")
+# dd<-read.table("species.distribution.count.mod.xls",header=F,sep="\t")
+dd<-read.table("species.distribution.count.mod.xls",header=F,sep="\t",stringsAsFactors=F)
+head(dd) 
+# 重新排序一遍 并保存前20个
+sepNums<-9
+dd_top<-head(dd[order(dd$V2,decreasing=T),],sepNums-1);dd_top
+dd_down<-tail(dd[order(dd$V2,decreasing=T),],nrow(dd)-sepNums+1)
+tail(dd[order(dd$V2,decreasing=T),],nrow(dd)-sepNums+1)
+dd_down<-data.frame("others",sum(dd_down$V2));dd_down
+colnames(dd_down)<-c("V1","V2")
+dd_final<-rbind(dd_top,dd_down)
+str(dd_final)
+library(ggplot2)
+
+head(dd_final)
+library(RColorBrewer)
+# colours<-brewer.pal(9, "YlGn")
+# colours<-rev(colours)
+# colours<-colours[order(dd_final$V1)]
+#
+
+# tiff(file="SpeciesDisCumSum.tiff",res=300,width=(600*4.17),height=(600*4.17))
+# p+geom_bar(aes(x=factor(1),y=V2,fill=V1),stat="identity")+geom_text(aes(x=factor(1),y=V2,label=ifelse(V2/sum(V2)>0.05,paste0(round(cumsum(V2)/sum(V2)*100,2),"%"),"")),stat="identity",position="stack")+coord_polar(theta="y")+theme(axis.ticks=element_blank(),axis.text.y=element_blank(),axis.title.y=element_blank(),panel.grid.major=element_line(linetype="dashed",colour="grey"),panel.background=element_rect(fill="white"))+scale_fill_manual(guide = guide_legend(title = "Species Distribution"),values = colours)+xlab("")+ylab("")
+# dev.off()
+str(dd_final)
+# dd_final$2
+dd_final$V1<-factor(dd_final$V1)
+dd_final$V1<-factor(dd_final$V1,levels=dd_final$V1)
+
+# 自己调一个颜色
+# Newcolor<-colorRampPalette(c("darkgreen", "orange", "lightyellow"))(100)[c(seq(1,50,by=2),seq(50,100,by=2))]
+# barplot(rep(1,length(Newcolor)),col=Newcolor)
+# colours<-Newcolor[seq(1,length(Newcolor),length(Newcolor)/dim(dd_final)[1])]
+# colours<-colours[order(dd_final$V1)]
+library(ggsci)
+p+geom_bar(aes(x=factor(1),y=V2,fill=V1),stat="identity",position = position_stack(reverse = T))+geom_text(aes(x=factor(1),y=cumsum(V2)-V2/2,label=ifelse(V2/sum(V2)>0.05,paste0(round(V2/sum(V2)*100,2),"%"),(""))),stat="identity")+
+  coord_polar(theta="y")+theme(axis.ticks=element_blank(),axis.text.y=element_blank(),axis.title.y=element_blank(),panel.grid.major=element_line(linetype="dashed",colour="grey"),panel.background=element_rect(fill="white"))+xlab("")+ylab("")+
+  scale_fill_igv(guide = guide_legend(title = "Species Distribution"))
