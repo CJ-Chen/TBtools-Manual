@@ -1,0 +1,22 @@
+#############
+#	OneKP数据下载
+###############
+cd /home/XiaLab/OneKP
+# 
+.
+├── 1kP-Sample-List.csv   #  http://www.onekp.com/samples/list.php 底部下载
+└── view-source_www.onekp.com_public_data.html #  http://www.onekp.com/public_data.html 查看网页源码
+
+# 
+wc -l 1kP-Sample-List.csv
+# 1329 1kP-Sample-List.csv
+
+
+perl -lne 'print for map {/"(http:.*?)"/g} $_' view-source_www.onekp.com_public_data.html|perl -pe 's/http:\/\/206.12.96.204\/onekp\/(\w{4}).*/$1/'|uniq|sort|uniq|wc -l
+# 1441
+
+# 也就是实际数据数目比表格中的还多
+perl -lne 'print for map {/"(http:.*?)"/g} $_' ../view-source_www.onekp.com_public_data.html > Download.links
+
+# 
+for link in `cat Download.links`;do echo $link;aria2c "$link";done

@@ -1,0 +1,60 @@
+
+####
+#  绘制GO富集的柱形图
+###
+
+perl -F'\t' -lane '$name=$ARGV;$name=~s/.*txt_(.*?)_.*/$1/;print qq{$1\t$_} if $F[5]>=5 and $F[3]<=0.05' Up.A_vs_B_Up.and.A_vs_C_Up.and.A_vs_D_Up.common.797.txt_*_EnrichResult.xls.sorted.padjust.xls > BCD.tab
+
+# 
+
+  setwd("C:\\Users\\CJ\\Desktop\\其他人的项目\\王秀荣\\最终GO数据")
+  
+  tbtoolsCounts<-read.delim("BCD.tab",header=F)
+  library(ggplot2)
+  head(tbtoolsCounts)
+  
+  tbtoolsCounts$V5<-(-log(tbtoolsCounts$V5,10))
+  # tbtoolsCounts$V2<-substr(tbtoolsCounts$V2,0,60)
+  
+  # GeneCount<-11578 # 所有有GO注释的基因个数
+  # GeneCount<-tbtoolsCounts$TotalGeneAnnotated[1] # 所有有GO注释的基因个数
+  # 先对Counts进行一次排序
+  
+  tbtoolsCounts<-tbtoolsCounts[order(tbtoolsCounts$V5,decreasing=F),]
+  tbtoolsCounts<-tbtoolsCounts[order(tbtoolsCounts$V1,decreasing=T),]
+  
+
+  # tbtoolsCounts<-tbtoolsCounts[order(tbtoolsCounts$Class,tbtoolsCounts$Counts,decreasing=F),]
+  str(tbtoolsCounts)
+  tbtoolsCounts$V2<-factor(tbtoolsCounts$V2,unique(as.character(tbtoolsCounts$V2)))
+  names(table(tbtoolsCounts$V1))
+  
+  
+  
+  ###########
+  #  横向图
+  #########
+  library(ggsci)
+  p<-ggplot(tbtoolsCounts)
+  p+geom_bar(aes(x=V2,y=V5,fill=V1),stat="identity")+
+    # geom_text(aes(x=Description,y=(Counts+max(tbtoolsCounts$Counts)*0.06)/GeneCount*100,label=Counts))+
+    # ylim(0,max(tbtoolsCounts$Counts)*1.08)+
+    # geom_line(aes(x=Description,group=1,color=Class),size=5,y=max(tbtoolsCounts$Counts*1.2))+
+    
+    #geom_text(aes(x=sum(tbtoolsCounts$Class==Class)/4*1,label=Class),y=max(tbtoolsCounts$Counts*1.2))+
+    geom_text(aes(x=V2,y=(V5+max(tbtoolsCounts$V5)*0.08),label=round(V5,2)))+
+    
+    coord_flip()+theme_bw()+theme(
+      # legend.position="none",
+      # axis.text.x = element_text(size=10),
+      # axis.line=element_line(size=0.5,linetype="dashed"),
+      # axis.ticks=element_blank(),
+      legend.position = c(.7, .1),
+      panel.grid.major=element_blank() ,
+      panel.grid.minor=element_blank() ,
+      panel.background=element_blank() # ,
+      # panel.border=element_rect(linetype="dashed")
+    )+ylab("-log10(Fisher'exact test p value)")+xlab("Gene Ontology Term")+scale_fill_npg()
+  ggsave("GO.pdf")
+  
+  

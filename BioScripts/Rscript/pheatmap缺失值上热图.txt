@@ -1,0 +1,7 @@
+CJ  13:41:17
+
+library(pheatmap)
+expZhao<-read.table(file="clipboard",header=T,row.names = 1)
+expZhao<-t(scale(t(expZhao)))
+expZhao[is.na(expZhao)]<-0
+pheatmap(expZhao,scale="none")
