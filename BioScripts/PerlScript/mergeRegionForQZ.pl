@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 my $usage = "
-	perl $0 tableTomerge merged.info merged.table
+	perl $0 tableTomerge merged.pos.sorted.info merged.table
 Note:
 	
 ";
